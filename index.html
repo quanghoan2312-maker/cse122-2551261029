@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYEN NGOC DIEP</title>
+    <!-- Thư viện icon Facebook, Instagram và nút phát nhạc -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Nền trang tối sang trọng */
+        body {
+            background-color: #0c1017;
+            background-image: radial-gradient(circle at center, #1a2332 0%, #0c1017 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        /* Khung thẻ chính */
+        .profile-card {
+            width: 380px;
+            background: linear-gradient(135deg, #131c2e 0%, #080c14 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.15);
+            padding: 36px 28px;
+            box-sizing: border-box;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hiệu ứng ánh sáng vàng góc thẻ */
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 55%);
+            pointer-events: none;
+        }
+
+        /* Khung ảnh đại diện tròn viền vàng */
+        .avatar-box {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #f3d06b, #8a7322);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Tên */
+        h1 {
+            font-size: 22px;
+            margin: 0 0 24px 0;
+            letter-spacing: 1px;
+            color: #ffffff;
+            font-weight: 700;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        /* Khu vực chứa các nút liên kết */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Thiết kế từng nút bấm */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            border-radius: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn i {
+            color: #d4af37;
+            font-size: 18px;
+        }
+
+        .social-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #f3d06b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Khu vực trình phát nhạc nhỏ gọn */
+        .music-box {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .music-btn {
+            width: 100%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            color: #f3d06b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <!-- Ảnh đại diện -->
+        <div class="avatar-box">
+            <img src="image/girl.jpg" alt="NGUYEN NGOC DIEP">
+        </div>
+
+        <!-- Tên -->
+        <h1>NGUYEN NGOC DIEP</h1>
+
+        <!-- 2 liên kết Facebook và Instagram -->
+        <div class="social-links">
+            <a href="https://www.facebook.com/nguyen.ngoc.diep.473212?locale=vi_VN" target="_blank" class="social-btn">
+                <i class="fa-brands fa-facebook"></i> Facebook
+            </a>
+
+            <a href="https://www.instagram.com/dinnie.ngc_?xtok=MWJ6MGxnZmhiaWNzcQ==" target="_blank" class="social-btn">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+        </div>
+
+        <!-- ================= KHU VỰC CHÈN ÂM THANH ================= -->
+        <div class="music-box">
+            <!-- BƯỚC 1: Điền tên file nhạc (ví dụ: nhac.mp3) vào giữa dấu ngoặc kép của src="" bên dưới -->
+            <audio id="bg-music" loop>
+                <source src="music/voice.mpeg" type="audio/mpeg">
+            </audio>
+
+            <!-- Nút bấm bật/tắt nhạc đồng bộ giao diện thẻ -->
+            <button onclick="toggleMusic()" class="social-btn music-btn" id="music-control">
+                <i class="fa-solid fa-play" id="music-icon"></i>
+                <span id="music-text">About me</span>
+            </button>
+        </div>
+        <!-- ======================================================== -->
+    </div>
+
+    <script>
+        const music = document.getElementById("bg-music");
+        const icon = document.getElementById("music-icon");
+        const text = document.getElementById("music-text");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                icon.classList.remove("fa-play");
+                icon.classList.add("fa-pause");
+                text.innerText = "Pause";
+            } else {
+                music.pause();
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
+                text.innerText = "Phát nhạc nền";
+            }
+        }
+    </script>
+
+</body>
+</html>
