@@ -1,0 +1,51 @@
+/* Cấu trúc chung của trang */
+body {
+    background-color: #FFFDE7; /* Nền vàng nhạt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Khung bao bài thơ */
+.poem-container {
+    width: 640px;
+    background-color: #FFFDE7;
+    border: 1px solid #9E9E9E;
+    padding: 24px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Tiêu đề bài thơ */
+h1 {
+    color: #D40000;
+    background-color: #FFD9E6;
+    font-size: 26px;
+    margin: 0 0 28px 0;
+    padding: 6px 0;
+    text-transform: uppercase;
+}
+
+/* Khổ thơ 1 và Khổ thơ 3 */
+.stanza-blue {
+    color: #0033CC;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Khổ thơ 2 */
+.stanza-red {
+    color: #D40000;
+    line-height: 1.7;
+}
+
+/* Đường kẻ ngang giữa các khổ thơ */
+hr {
+    border: none;
+    border-top: 1px solid #0033CC;
+    width: 55%;
+    margin: 20px auto;
+}
