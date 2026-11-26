@@ -1,0 +1,48 @@
+
+
+body {
+    margin: 0 ;
+    font-family: Arial, sans-serif;
+    padding:24px 16px;
+}
+
+
+.khung-tho {
+  max-width: 640px;
+  margin: 0 auto;
+  padding:  24px, text-align;
+  background-color: #FFFDE7;
+  border:  1px solid; #9E9E9E;
+  text-align: center;
+}
+
+
+h1 {
+    color: #D40000;
+    background-color: #FFD9E6;
+    font-size: 26px;
+    margin: 0 0 28px 0;
+    padding: 6px 0;
+    text-transform: uppercase;
+}
+
+
+.kho-xanh {
+    color: #0033CC;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+
+.kho-do {
+    color: #D40000;
+    line-height: 1.7;
+}
+
+
+hr {
+    border: none;
+    border-top: 1px solid #0033CC;
+    width: 55%;
+    margin: 20px auto;
+}
